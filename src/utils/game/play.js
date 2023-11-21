@@ -1,5 +1,5 @@
 import { merge } from "@corex/deepmerge"
-import { findPieceFromCoordinate } from "../helpers/findPiece"
+import { findPieceFromCoordinates } from "../helpers/findPiece"
 import getWinnerIfThereIsOnePlay from "../helpers/getWinnerIfThereIsOnePlay"
 import firstClick from "./firstClick"
 import isFirstClick from "./isFirstClick"
@@ -11,7 +11,7 @@ const playFunction = (prevState, rowIndex, cellIndex) => {
   }
 
   // The piece that was selected on first click
-  const piece = findPieceFromCoordinate(prevState.pieces, rowIndex, cellIndex)
+  const piece = findPieceFromCoordinates(prevState.pieces, rowIndex, cellIndex)
 
   if (isFirstClick(piece, prevState)) {
     const newState = firstClick(prevState, piece)

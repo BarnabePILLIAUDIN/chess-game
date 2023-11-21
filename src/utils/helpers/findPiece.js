@@ -1,4 +1,4 @@
-export const findPieceFromCoordinate = (pieces, rowIndex, cellIndex) =>
+export const findPieceFromCoordinates = (pieces, rowIndex, cellIndex) =>
   pieces.find(
     (piece) =>
       piece.coordinates[0] === rowIndex &&

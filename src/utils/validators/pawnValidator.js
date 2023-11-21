@@ -1,4 +1,4 @@
-import { findPieceFromCoordinate } from "../helpers/findPiece"
+import { findPieceFromCoordinates } from "../helpers/findPiece"
 
 const pawnValidator = (coordinatesDiff, state, piece) =>
   !piece.hasBeenPlayed
@@ -11,7 +11,7 @@ const validateFirstPlay = (coordinatesDiff, state, currentCoordinates) => {
     Math.abs(coordinatesDiff[1]) === 1
   ) {
     if (
-      !findPieceFromCoordinate(
+      !findPieceFromCoordinates(
         state.pieces,
         currentCoordinates[0] + coordinatesDiff[0],
         currentCoordinates[1] + coordinatesDiff[1]
@@ -44,7 +44,7 @@ const validateOthersPlays = (coordinatesDiff, state, currentCoordinates) => {
     Math.abs(coordinatesDiff[1]) === 1
   ) {
     if (
-      !findPieceFromCoordinate(
+      !findPieceFromCoordinates(
         state.pieces,
         currentCoordinates[0] + coordinatesDiff[0],
         currentCoordinates[1] + coordinatesDiff[1]
@@ -75,7 +75,7 @@ const validateOthersPlays = (coordinatesDiff, state, currentCoordinates) => {
 }
 const isBlocked = (coordinatesDiff, currentCoordinates, pieces) =>
   Boolean(
-    findPieceFromCoordinate(
+    findPieceFromCoordinates(
       pieces,
       currentCoordinates[0] + coordinatesDiff[0],
       currentCoordinates[1]
