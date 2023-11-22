@@ -4,6 +4,7 @@ import AppContext from "./AppContext"
 import Button from "./Button"
 import CenterButton from "./CenterButton"
 import TimeDisplayer from "./TimeDisplayer"
+import ListDeadPieces from "./ListDeadPieces"
 
 const Game = () => {
   const { state, play, startGame, resetGame } = useContext(AppContext)
@@ -39,6 +40,7 @@ const Game = () => {
           )}
 
           <Board handleClick={handleClick} />
+          <ListDeadPieces />
           <CenterButton>
             <Button color="orange" onClick={resetGame}>
               Reset the game
