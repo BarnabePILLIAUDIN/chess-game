@@ -22,13 +22,28 @@ const Board = ({ handleClick, className }) => {
             rowIndex + 1,
             cellIndex + 1
           )
+          const cellPieceColor = cellPiece && cellPiece.color
+          const currentPlayerColor =
+            // As the turn is 0 at the beginning of the game, the first player would be black
+            // It's because we increment the turn at the end of the play function
+            (state.currentTurn + 1) % 2 ? "black" : "white"
           const isCellPieceSelected = cellPiece
             ? state.selectedPieceName === cellPiece.name
             : false
 
+          let isPossibleMove = false
+
+          if (cellPieceColor !== currentPlayerColor) {
+            // As you can't kill your own pieces, no need to highlight a cell where there is one of your pieces
+            isPossibleMove = state.possibleMoves.some(
+              ([x, y]) => x === rowIndex + 1 && y === cellIndex + 1
+            )
+          }
+
           return (
             <Cell
               isSelected={isCellPieceSelected}
+              isPossibleMove={isPossibleMove}
               image={cellPiece && cellPiece.image}
               className={
                 rowIndex % 2 === 0 ? "even:bg-orange-800" : "odd:bg-orange-800"

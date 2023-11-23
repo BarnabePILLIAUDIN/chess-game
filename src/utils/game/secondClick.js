@@ -33,9 +33,14 @@ const secondClick = (piece, prevState, [rowIndex, cellIndex]) => {
   // If we are here, it means we are on the second click and we clicked on a cell that have one of our piece in it
   // So we unselect the piece the user selected before
   const newState = {
+    possibleMoves: [],
     isAPieceSelected: false,
     selectedPieceName: ""
   }
+
+  // As prevState already has value we can't reset it by setting possibleMoves to [] in newState
+  // So we need to mutate prevState
+  prevState.possibleMoves = []
 
   return merge([prevState, newState])
 }

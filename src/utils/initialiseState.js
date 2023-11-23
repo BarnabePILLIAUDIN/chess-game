@@ -10,6 +10,7 @@ const initialiseState = () => ({
   pieces: [...getFreshBlackPieces(), ...getFreshWhitePieces()],
   board: Array(8).fill(Array(8).fill(null)),
   isAPieceSelected: false,
+  possibleMoves: [],
   selectedPieceName: "",
   timerInterval: null,
   winner: ""

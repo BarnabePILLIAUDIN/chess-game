@@ -1,7 +1,11 @@
 import { merge } from "@corex/deepmerge"
 import checkIfAllowedToPlay from "../helpers/checkIfAllowedToPlay"
+import getPossibleMoves from "../helpers/getPossibleMoves"
 
 const firstClick = (prevState, piece) => {
+  // As the user will select a new piece, we reset the possible moves
+  prevState.possibleMoves = []
+
   // If the first click is on a cell that have no piece in it we do nothing
   if (!piece && !prevState.isAPieceSelected) {
     return prevState
@@ -20,7 +24,8 @@ const firstClick = (prevState, piece) => {
   if (!prevState.isAPieceSelected) {
     const newState = {
       isAPieceSelected: true,
-      selectedPieceName: piece.name
+      selectedPieceName: piece.name,
+      possibleMoves: getPossibleMoves(piece, prevState)
     }
 
     return merge([prevState, newState])
