@@ -1,3 +1,4 @@
+import { COLORS } from "../constants"
 import getImageUrl from "./helpers/getImageUrl"
 
 const generatePiece =
@@ -12,5 +13,5 @@ const generatePiece =
     validator
   })
 
-export const generateBlackPiece = generatePiece("black")
-export const generateWhitePiece = generatePiece("white")
+export const generateBlackPiece = generatePiece(COLORS.BLACK)
+export const generateWhitePiece = generatePiece(COLORS.WHITE)

@@ -1,12 +1,13 @@
+import { COLORS } from "../../../constants"
 import { findPieceFromCoordinates } from "../findPiece"
 const getPawnPossibleMoves = (piece, prevState) => {
   const possibleMoves = []
 
-  if (piece.color === "white") {
+  if (piece.color === COLORS.WHITE) {
     possibleMoves.push(...getPawnPossibleMovesWhite(piece, prevState))
   }
 
-  if (piece.color === "black") {
+  if (piece.color === COLORS.BLACK) {
     possibleMoves.push(...getPawnPossibleMovesBlack(piece, prevState))
   }
 
@@ -69,7 +70,7 @@ const getPawnPossibleMovesBlack = (piece, prevState) => {
 const getPiecesThatPawnCanEat = (piece, prevState) => {
   const possibleMoves = []
 
-  if (piece.color === "white") {
+  if (piece.color === COLORS.WHITE) {
     if (
       findPieceFromCoordinates(
         prevState.pieces,
@@ -91,7 +92,7 @@ const getPiecesThatPawnCanEat = (piece, prevState) => {
     }
   }
 
-  if (piece.color === "black") {
+  if (piece.color === COLORS.BLACK) {
     if (
       findPieceFromCoordinates(
         prevState.pieces,

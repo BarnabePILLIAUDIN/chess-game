@@ -1,3 +1,4 @@
+import { PIECES_TYPES } from "../../constants"
 import { findPieceFromCoordinates } from "./findPiece"
 
 // Returns true if the piece does not jump over other pieces
@@ -9,17 +10,17 @@ const validateIfDoesNotJumpPieces = (
   // Knights are allowed to jump over pieces
   // Kings are only allowed to move one cell at a time so they can't jump over pieces
   if (
-    selectedPiece.name.includes("knight") ||
-    selectedPiece.name.includes("king")
+    selectedPiece.name.includes(PIECES_TYPES.KNIGHT) ||
+    selectedPiece.name.includes(PIECES_TYPES.KING)
   ) {
     return true
   }
 
-  if (selectedPiece.name.includes("pawn")) {
+  if (selectedPiece.name.includes(PIECES_TYPES.PAWN)) {
     return isPawnJumpingOverPiece(selectedPiece, prevState)
   }
 
-  if (selectedPiece.name.includes("rook")) {
+  if (selectedPiece.name.includes(PIECES_TYPES.ROOK)) {
     if (coordinatesDiff[0] !== 0) {
       return validateIfRookDoesNotJumpPiecesVertically(
         selectedPiece,
@@ -35,7 +36,7 @@ const validateIfDoesNotJumpPieces = (
     )
   }
 
-  if (selectedPiece.name.includes("bishop")) {
+  if (selectedPiece.name.includes(PIECES_TYPES.BISHOP)) {
     return validateIfBishopDoesNotJumpingOverPieces(
       selectedPiece,
       coordinatesDiff,
@@ -43,7 +44,7 @@ const validateIfDoesNotJumpPieces = (
     )
   }
 
-  if (selectedPiece.name.includes("queen")) {
+  if (selectedPiece.name.includes(PIECES_TYPES.QUEEN)) {
     return validateIfQueenDoesNotJumpingOverPieces(
       selectedPiece,
       coordinatesDiff,
