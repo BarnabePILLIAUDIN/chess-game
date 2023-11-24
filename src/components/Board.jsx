@@ -46,7 +46,9 @@ const Board = ({ handleClick, className }) => {
               isPossibleMove={isPossibleMove}
               image={cellPiece && cellPiece.image}
               className={
-                rowIndex % 2 === 0 ? "even:bg-orange-800" : "odd:bg-orange-800"
+                rowIndex % 2 === 0
+                  ? "even:bg-orange-800 transition-all duration-1000"
+                  : "odd:bg-orange-800 transition-all duration-500"
               }
               // As in the logic of the game the first row and column have id 1 we need to add 1 to the index of the array
               rowIndex={rowIndex + 1}
