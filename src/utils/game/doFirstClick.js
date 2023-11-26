@@ -2,7 +2,7 @@ import { merge } from "@corex/deepmerge"
 import checkIfAllowedToPlay from "../helpers/checkIfAllowedToPlay"
 import getPossibleMoves from "../helpers/getPossibleMoves"
 
-const firstClick = (prevState, piece) => {
+const doFirstClick = (prevState, piece) => {
   // As the user will select a new piece, we reset the possible moves
   prevState.possibleMoves = []
 
@@ -34,4 +34,4 @@ const firstClick = (prevState, piece) => {
   return prevState
 }
 
-export default firstClick
+export default doFirstClick

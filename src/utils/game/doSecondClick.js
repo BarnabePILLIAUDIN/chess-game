@@ -1,7 +1,7 @@
 import { merge } from "@corex/deepmerge"
 import { findPieceFromName } from "../helpers/findPiece"
 import validateIfJumpPieces from "../helpers/validateIfDoesNotJumpPieces"
-const secondClick = (piece, prevState, [rowIndex, cellIndex]) => {
+const doSecondClick = (piece, prevState, [rowIndex, cellIndex]) => {
   // If we reach this point, it means a piece have been selected on first click so we store it into a variable
   const selectedPiece = findPieceFromName(
     prevState.pieces,
@@ -45,7 +45,7 @@ const secondClick = (piece, prevState, [rowIndex, cellIndex]) => {
   return merge([prevState, newState])
 }
 
-export default secondClick
+export default doSecondClick
 const handleSecondClickWithNoPieceInCell = (
   prevState,
   selectedPiece,
